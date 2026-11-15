@@ -4,335 +4,315 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>madeup1 // home</title>
+    <meta name="description"
+        content="Minecraft-focused developer experienced with Minestom, Paper, custom protocols, stat systems, and database-backed server development." />
+    <title>madeup1 — Minecraft Developer</title>
     <style>
         :root {
-            --bg: #000000;
-            --panel: #0d0d0d;
-            --panel-2: #121212;
-            --line: rgba(255, 255, 255, 0.9);
-            --text: #f5f5f5;
-            --muted: rgba(255, 255, 255, 0.7);
-            --soft: rgba(255, 255, 255, 0.15);
+            --paper: #f7f7f5;
+            --ink: #171717;
+            --muted: #686868;
+            --line: #d9d9d4;
+            --accent: #315c4d;
         }
 
         * {
             box-sizing: border-box;
         }
 
-        html,
+        html {
+            background: var(--paper);
+        }
+
         body {
             margin: 0;
-            min-height: 100%;
-            background: var(--bg);
-            color: var(--text);
-            font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
-            letter-spacing: 0.02em;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            line-height: 1.55;
         }
 
-        body {
-            display: grid;
-            place-items: center;
-            min-height: 100vh;
-            padding: 32px;
+        a {
+            color: inherit;
         }
 
-        .screen {
-            width: min(100%, 980px);
-            background: var(--panel);
-            border: 1px solid var(--line);
-            box-shadow:
-                0 0 0 1px rgba(255, 255, 255, 0.08),
-                0 16px 48px rgba(0, 0, 0, 0.6);
+        .page {
+            width: min(100% - 40px, 860px);
+            margin: 0 auto;
+            padding: 72px 0 64px;
         }
 
-        .topbar {
+        header {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
-            gap: 16px;
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.02);
+            gap: 32px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--ink);
         }
 
-        .traffic {
-            display: flex;
-            gap: 8px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border: 1px solid var(--line);
-            background: transparent;
-        }
-
-        .title {
-            font-size: 12px;
-            text-transform: lowercase;
-            color: var(--muted);
-        }
-
-        .content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            min-height: 620px;
-        }
-
-        .sidebar {
-            border-right: 1px solid var(--line);
-            padding: 22px 18px;
-            background: rgba(255, 255, 255, 0.01);
-        }
-
-        .nav {
-            display: grid;
-            gap: 10px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 10px;
-            border: 1px solid transparent;
-            color: var(--text);
-            text-decoration: none;
-            text-transform: lowercase;
-            transition: background 0.15s ease, border-color 0.15s ease;
-        }
-
-        .nav-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: var(--soft);
-        }
-
-        .nav-item .symbol {
-            color: var(--muted);
-        }
-
-        .main {
-            padding: 28px 30px 32px;
-        }
-
-        .prompt {
-            margin-bottom: 18px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .prompt .user {
-            color: var(--text);
-        }
-
-        .prompt .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 18px;
-            background: var(--text);
-            vertical-align: middle;
-            margin-left: 6px;
-            animation: blink 1s steps(1) infinite;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .hero {
-            margin-top: 18px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.01);
-            padding: 22px 20px 18px;
-        }
-
-        .kicker {
-            font-size: 12px;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            margin-bottom: 18px;
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
         }
 
         h1 {
-            margin: 0;
-            font-size: clamp(2.2rem, 4vw, 5rem);
-            line-height: 0.96;
-            letter-spacing: -0.05em;
+            font-size: clamp(2.4rem, 7vw, 4.5rem);
+            line-height: 0.95;
+            letter-spacing: -0.07em;
             font-weight: 700;
         }
 
-        .subtitle {
-            margin-top: 18px;
-            max-width: 650px;
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--muted);
+        .role {
+            margin-top: 12px;
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 700;
         }
 
-        .cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 26px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 14px;
-            border: 1px solid var(--line);
-            text-decoration: none;
-            color: var(--text);
-            background: transparent;
-            font-size: 13px;
-            text-transform: lowercase;
-            transition: transform 0.15s ease, background 0.15s ease;
-        }
-
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.04);
-            transform: translateY(-1px);
-        }
-
-        .btn.primary {
-            background: var(--text);
-            color: var(--bg);
-            border-color: var(--text);
-        }
-
-        .grid {
+        .contact {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 28px;
-        }
-
-        .card {
-            border: 1px solid var(--line);
-            padding: 14px 14px 12px;
-            background: rgba(255, 255, 255, 0.01);
-        }
-
-        .card .label {
+            gap: 3px;
+            min-width: 190px;
             color: var(--muted);
-            font-size: 11px;
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+
+        .contact a {
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            color: var(--accent);
+        }
+
+        main {
+            display: grid;
+            gap: 38px;
+            padding-top: 34px;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 28px;
+        }
+
+        h2 {
+            color: var(--muted);
+            font-size: 0.72rem;
             letter-spacing: 0.14em;
-            margin-bottom: 10px;
+            line-height: 1.4;
+            text-transform: uppercase;
         }
 
-        .card .value {
-            font-size: 24px;
-            line-height: 1.2;
-            font-weight: 700;
+        .summary {
+            max-width: 620px;
+            font-size: 1.08rem;
+            line-height: 1.65;
         }
 
-        .card .meta {
-            margin-top: 10px;
-            font-size: 12px;
-            color: var(--muted);
+        .entry {
+            display: grid;
+            gap: 6px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid var(--line);
         }
 
-        .footer {
-            margin-top: 28px;
-            padding-top: 16px;
-            border-top: 1px solid var(--line);
+        .entry + .entry {
+            padding-top: 22px;
+        }
+
+        .entry:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .entry-heading {
             display: flex;
             justify-content: space-between;
-            gap: 12px;
-            color: var(--muted);
-            font-size: 12px;
-            text-transform: lowercase;
+            gap: 20px;
         }
 
-        @media (max-width: 760px) {
-            .content {
-                grid-template-columns: 1fr;
+        h3 {
+            font-size: 1.05rem;
+            line-height: 1.35;
+        }
+
+        .date {
+            color: var(--muted);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .company {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .description {
+            color: var(--muted);
+            max-width: 620px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+            color: var(--muted);
+        }
+
+        .skills span::before {
+            content: "—";
+            margin-right: 8px;
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 52px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+
+        @media (max-width: 620px) {
+            .page {
+                width: min(100% - 32px, 860px);
+                padding-top: 40px;
             }
 
-            .sidebar {
-                border-right: none;
-                border-bottom: 1px solid var(--line);
+            header {
+                display: block;
             }
 
-            .grid {
+            .contact {
+                margin-top: 24px;
+                text-align: left;
+            }
+
+            section {
                 grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .entry-heading {
+                display: block;
+            }
+
+            .date {
+                display: block;
+                margin-top: 3px;
+            }
+        }
+
+        @media print {
+            .page {
+                width: 100%;
+                padding: 0;
+            }
+
+            body {
+                background: #fff;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="screen">
-        <div class="topbar">
-            <div class="traffic">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+    <div class="page">
+        <header>
+            <div>
+                <h1>luke</h1>
+                <p class="role">Minecraft developer &amp; systems engineer</p>
             </div>
-            <div class="title">madeup1 / home</div>
-        </div>
+            <div class="contact">
+                <a href="mailto:discotimedev@gmail.com">discotimedev@gmail.com</a>
+                <a href="https://github.com/madeup1">github.com/madeup1</a>
+                <span>Available for work</span>
+            </div>
+        </header>
 
-        <div class="content">
-            <aside class="sidebar">
-                <nav class="nav" aria-label="Main navigation">
-                    <a href="#" class="nav-item"><span class="symbol">~</span> home</a>
-                    <a href="#" class="nav-item"><span class="symbol">~/</span> projects</a>
-                    <a href="#" class="nav-item"><span class="symbol">~/</span> notes</a>
-                    <a href="#" class="nav-item"><span class="symbol">~/</span> about</a>
-                    <a href="#" class="nav-item"><span class="symbol">~/</span> contact</a>
-                </nav>
-            </aside>
+        <main>
+            <section>
+                <h2>Profile</h2>
+                <p class="summary">
+                    I build Minecraft servers and the systems behind them, with
+                    experience across Minestom, Paper, custom protocol
+                    implementations, stat-based gameplay, and database-backed
+                    features. I care about clean, reusable code and turning
+                    complex ideas into reliable player experiences.
+                </p>
+            </section>
 
-            <main class="main">
-                <div class="prompt">
-                    <span class="user">madeup1@github.io</span>:<span>~</span>$ <span class="cursor"></span>
+            <section>
+                <h2>Selected work</h2>
+                <div>
+                    <article class="entry">
+                        <div class="entry-heading">
+                            <h3>Minecraft server development</h3>
+                            <span class="date">Present</span>
+                        </div>
+                        <p class="company">Minestom | Paper | Java</p>
+                        <p class="description">
+                            Developing server features and infrastructure with
+                            Minestom and Paper, from gameplay systems and
+                            integrations to maintainable, production-ready
+                            foundations.
+                        </p>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-heading">
+                            <h3><a href="https://dragsim.co">DragSim</a> &amp; <a href="https://endisles.com">Endisles</a></h3>
+                            <span class="date">Experience</span>
+                        </div>
+                        <p class="company">Server development</p>
+                        <p class="description">
+                            Contributing to Minecraft server projects with a focus
+                            on scalable gameplay, reusable architecture, and the
+                            details that make multiplayer experiences feel
+                            consistent and polished.
+                        </p>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-heading">
+                            <h3>Protocols, stats &amp; persistence</h3>
+                            <span class="date">Ongoing</span>
+                        </div>
+                        <p class="company">Systems | Backend | Databases</p>
+                        <p class="description">
+                            Building custom Minecraft protocol implementations,
+                            complex stat-based systems, and database-backed
+                            features with an emphasis on correctness, performance,
+                            and code that can be reused across projects.
+                        </p>
+                    </article>
                 </div>
+            </section>
 
-                <section class="hero">
-                    <div class="kicker">terminal / identity</div>
-                    <h1>minimal systems.<br />quiet outputs.</h1>
+            <section>
+                <h2>Skills</h2>
+                <div class="skills">
+                    <span>Minestom</span>
+                    <span>Paper</span>
+                    <span>Java</span>
+                    <span>Custom protocols</span>
+                    <span>Stat systems</span>
+                    <span>Databases</span>
+                    <span>Server architecture</span>
+                    <span>Clean, reusable code</span>
+                </div>
+            </section>
+        </main>
 
-                    <p class="subtitle">
-                        building small, deliberate tools and interfaces with a focus on clarity,
-                        performance, and thoughtful interaction.
-                    </p>
-
-                    <div class="cta-row">
-                        <a class="btn primary" href="#projects">view projects</a>
-                        <a class="btn" href="#contact">say hello</a>
-                    </div>
-
-                    <div class="grid" id="projects">
-                        <div class="card">
-                            <div class="label">status</div>
-                            <div class="value">online</div>
-                            <div class="meta">available for work</div>
-                        </div>
-
-                        <div class="card">
-                            <div class="label">focus</div>
-                            <div class="value">design</div>
-                            <div class="meta">ux / systems / tooling</div>
-                        </div>
-
-                        <div class="card">
-                            <div class="label">mode</div>
-                            <div class="value">build</div>
-                            <div class="meta">shipping small experiments</div>
-                        </div>
-                    </div>
-
-                    <div class="footer" id="contact">
-                        <span>contact: hello@madeup1.dev</span>
-                        <span>github.com/madeup1</span>
-                    </div>
-                </section>
-            </main>
-        </div>
+        <footer>Last updated 2026 · madeup1.dev</footer>
     </div>
 </body>
 
